@@ -1,0 +1,28 @@
+controller_server:
+  ros__parameters:
+    controller_frequency: 5.0 #c #20
+    use_realtime_priority: false
+    action_server_result_timeout: 10.0
+    controller_plugins: ['FollowPath']
+    progress_checker_plugins: ["progress_checker"]
+    goal_checker_plugin: "goal_checker"
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.5
+      movement_time_allowance: 0.25
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
+      stateful: true
+    FollowPath:
+      plugin: "dwb_core:: DWBLocalPlanner"
+    min_x_velocity_treshold: 0.0001
+    min_y_velocity_treshold: 0.0001
+    min_theta_velocity_treshold: 0.0001
+    failure_tolerance: 0.0
+    speed_limit_topic: "speed_limit"
+    odom_topic: "/odom"
+
+
+    

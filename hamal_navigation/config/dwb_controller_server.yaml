@@ -1,0 +1,78 @@
+dwb_controller_server:
+ros_parameters:
+  use_sim_time: true
+  controller_frequency: 20.0 #c
+  min_x_velocity_treshold: 0.001
+  min_y_velocity_treshold: 0.5
+  min_theta_velocity_treshold: 0.001
+  progress_checker_plugins: ["progress_checker"]
+  goal_checker_plugins: ["goal_checker"]
+  controller_plugins: ["FollowPath"]
+  progress_checker:
+    plugin: "nav2_controller::SimpleGOalChecker"
+    required_movement_radius: 0.5
+    movement_time_allowance: 10.0
+  goal_checker:
+    plugin: "nav2_controller::SİmpleProgressChecker"
+    xy_goal_tolerance: 0.1 #c
+    yaw_goal_tolerance: 0.01 #c
+    stateful: true
+  #DWB controller parameters
+  FollowPath:
+    plugin: "dwb_core:DWBLocalPlanner"
+    debug_trajectory_details: true
+    
+    min_vel_x: -0.9 #c
+    max_vel_x: 0.9 #c
+
+    min_vel_y: -0.0    
+    max_vel_y: 0.0
+
+    max_vel_theta: 1.0 #c
+    min_speed_xy: 0.0
+    max_speed_xy: 0.26
+    min_speed_theta: 0.0
+    
+    acc_lim_x: 0.35 #c
+    acc_lim_y: 0.0 #c
+    acc_lim_theta: 0.5 #c
+    
+    decel_lim_x: -2.5
+    decel_lim_y: 0.0
+    decel_lim_theta: -3.2
+    vx_samples: 20 #c
+    vy_samples: 0
+    vtheta_samples: 40 #c
+    sim_time: 4.0 #c
+    linear_granularity: 0.05 #needs to be checked 
+    angular_granularity: 0.025 #sim_granuality: 0.025
+    transform_tolerance: 0.2
+    xy_goal_tolerance: 0.25
+    trans_stopped_velocity: 0.001
+    short_circuit_trajectory_evaluation: true
+    stateful: true
+    critics: ["RotateToGoal", "ObstacleFootprint", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+    BaseObstacle.scale: 0.02
+    PathAlign.scale: 32.0
+    GoalAlign.scale: 24.0
+    ObstacleFootprint.scale: 0.02
+    PathAlign.forward_point_distance: 0.31
+    GoalAlign.forward_point_distance: 0.31
+    PathDist.scale: 32.0
+    GoalDist.scale: 32.0
+    RotateToGoal.scale: 32.0
+    RotateToGoal.slowing_factor: 5.0
+    RotateToGoal.lookahead_time: -1.0
+    ObstacleFootprint.max_scaling_factor: 0.2
+    ObstacleFootprint.scaling_speed: 0.25
+    Oscillation.oscillation_reset_dist: 0.05
+
+
+
+
+    
+    
+    
+    
+      
+ 

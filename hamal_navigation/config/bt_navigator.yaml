@@ -1,0 +1,56 @@
+bt_navigator:
+    ros_parameters:
+      navigators: {'navigate_to_pose','navigate_through_poses'}
+      navigate_to_pose: 
+        plugin: "nav2_bt_navigator/NavigateToPoseNavigator"
+      navigate_through_poses:
+        plugin: "nav2_bt_navigator/NavigateThroughPosesNavigator"
+      plugin_lib_names:
+        -nav2_compute_path_to_pose_action_bt_node
+        -nav2_follow_path_action_bt_node
+        -nav2_bacp_up_action_bt_node
+        -nav2_spin_action_bt_node
+        -nav2_wait_action_bt_node
+        -nav2_clear_costmap_service_bt_node
+        -nav2_is_stuck_condition_bt_node
+        -nav2_goal_reached_condition_bt_node
+        -nav2_initial_pose_received_condition_bt_node
+        -nav2_goal_updated_condition_bt_node
+        -nav2_reinitialize_global_localization_service_bt_node
+        -nav2_rate_controller_bt_node
+        -nav2_distance_controller_bt_node
+        -nav2_speed_controller_bt_node  
+        -nav2_recovery_node_bt_node
+        -nav2_pipeline_sequence_bt_node
+        -nav2_round_robin_node_bt_node
+        -nav2_transform_available_condition_bt_node
+        -nav2_time_expired_condition_bt_node
+        -nav2_distance_traveled_condition_bt_node
+        -nav2nav2_single_trigger_bt_node
+      default_bt_xml_file: "/opt/ros/foxy/share/nav2_bt_navigator/behaviour_trees/navigate_w_rep"
+      bt_loop_duration: 10
+      default_server_timeout: 20
+      wait_for_service_timeout: 1000
+      action_server_result_timeout: 10
+      transform_tolerance: 0.1
+      global_frame: odom
+      robot_base_frame: base_link
+      odom_topic: /odom
+      goal_blackboard_id:
+      path_blackboard_id:
+      goals_blackboard_id:
+      use_sim_time: true
+      error_code_names:
+        -compute_path_error_code
+        -follow_path_error_code
+
+
+
+
+        
+
+      
+      
+      
+      
+      

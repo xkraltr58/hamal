@@ -1,0 +1,11 @@
+waypoint_follower:
+  ros__parmeters:
+    loop_rate: 
+    stop_on_failure:
+    global_frame_id:
+    action_server_result_timeout:
+    waypoint_task_executor_plugin: 'wait_at_waypoint'
+      plugin: "nav2_waypoint_follower::WaitAtWayPoint"
+      enabled: truewaypoint_pause_duration: 0
+
+      

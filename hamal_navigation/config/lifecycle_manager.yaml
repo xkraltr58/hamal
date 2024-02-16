@@ -1,0 +1,9 @@
+lifecycle_manager:
+  ros_parameters:
+    autostart: false
+    node_names:
+    bond_timeout: 4.0
+    attemp_respawn_reconnection: true
+    bond_respawn_max_duration: 10.0
+
+    
